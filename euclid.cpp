@@ -4,6 +4,7 @@ using namespace std;
 
 int euclid(int an, int bn) {
 
+// Sind beide Variablen größer als 0 ?
   if ((an > 0) && (bn > 0)) {
 
     int a = std::max(an, bn);
@@ -23,17 +24,37 @@ int euclid(int an, int bn) {
 }
 
 int main() {
+    
+int ax,bx;
+string inp = "";
 
-  // testen  
-  int a = euclid(1078, 78);
+while(inp != "n"){
+// Userinput für den ersten Wert
+cout << "Bitte 1. Wert eingeben: " << endl;
+cin >> ax;
+
+// Userinput für den ersten Wert
+cout << "Bitte 2. Wert eingeben: " << endl;
+cin >> bx;
+
+    // Führe Funktion euclid mit eingelesenen Werten aus und lege Resultat (was returned wird) auf "result".
+  int result = euclid(ax, bx);
 
   // Für den Fall das Euclid Funktion -1 zurückgibt (bei Fehler) --> schreibe "Es ist nicht möglich ..." 
-  if (a == -1) {
+  if (result == -1) {
     cout << "Es ist nicht möglich den größten gemeinsamen Teiler zu berechnen. (beachte a,b > 0!)" << endl;
-
   } else { // Andernfalls zeige den ggT
-    cout << "Der größte gemeinsame Teiler ist: " << a << endl;
+    cout << "Der größte gemeinsame Teiler ist: " << result << endl;
   }
-
+ 
+  cout << "Wollen Sie noch einen ggT berechnen? (y/n)" << endl;
+  cin >> inp;
+  
+  if(inp == "n"){
+      break;
+  }
+  
+}
   return 1;
 }
+
